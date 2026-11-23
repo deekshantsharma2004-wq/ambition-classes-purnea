@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   title: "Results",
   alternates: { canonical: "/results" },
   description:
-    "Results from Ambition Classes, Purnea — Pooja Lavali (NEET), Romi Sah (NIT-Surat), Rajeev Ranjan (IIT-Roorkee), Pallavi Kumari (95%).",
+    "Results from Ambition Classes, Purnea — Pooja Lavali (NEET), Romi Sah (M.Sc. Chemistry, SVNIT Surat), Rajeev Ranjan (IIT-Roorkee), Pallavi Kumari (95%).",
 };
 
 export default function Results() {
@@ -22,14 +22,14 @@ export default function Results() {
           institute has published — no rank or year is added without proof.
         </p>
       </Reveal>
-      <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+      <div className="mt-8 grid max-w-3xl gap-3 sm:grid-cols-2">
         {RESULTS.map((r) => (
           <Reveal key={r.name}>
-            <article className="overflow-hidden rounded-2xl border border-line bg-white shadow-sm transition hover:-translate-y-1 hover:shadow-lg">
-              <span className="relative block aspect-[4/5] w-full overflow-hidden bg-mist">
-                <Image src={r.img} alt={`${r.name} — ${r.result}`} fill sizes="(max-width: 640px) 50vw, 25vw" className="object-cover object-top" />
+            <article className="flex h-full items-center gap-4 rounded-2xl border border-line bg-white p-4 shadow-sm transition hover:-translate-y-1 hover:shadow-lg">
+              <span className="relative block h-[72px] w-[72px] shrink-0 overflow-hidden rounded-full bg-mist lg:h-24 lg:w-24">
+                <Image src={r.img} alt={`${r.name} — ${r.result}`} fill sizes="96px" className="object-cover object-top" />
               </span>
-              <div className="p-4 text-center">
+              <div className="min-w-0">
                 <h2 className="font-bold text-navy">{r.name}</h2>
                 <p className="font-extrabold text-gold-dark">{r.result}</p>
               </div>

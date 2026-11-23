@@ -20,7 +20,7 @@ export function QuickActions() {
     <div className="grid grid-cols-2 gap-3 sm:grid-cols-4">
       <a
         href={`tel:+91${PHONE_1}`}
-        className="flex min-h-12 items-center justify-center gap-2 rounded-full bg-navy font-bold text-white transition hover:-translate-y-0.5"
+        className="flex min-h-12 items-center justify-center gap-2 rounded-full bg-gold font-bold text-navy transition hover:-translate-y-0.5"
       >
         <Phone size={18} aria-hidden /> Call
       </a>

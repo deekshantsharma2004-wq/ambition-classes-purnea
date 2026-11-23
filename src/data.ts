@@ -104,7 +104,7 @@ export const RESULTS = [
   },
   {
     name: "Romi Sah",
-    result: "NIT – Surat",
+    result: "Integrated M.Sc. Chemistry, SVNIT Surat (Batch of 2026)",
     img: "/images/students/romi.jpg",
   },
   {

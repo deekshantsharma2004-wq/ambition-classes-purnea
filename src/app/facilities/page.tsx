@@ -45,11 +45,11 @@ export default function Facilities() {
       {FAC.map((f, i) => (
         <section key={f.id} id={f.id} className="mt-10 scroll-mt-24">
           <Reveal>
-            <div className={`grid items-center gap-6 lg:grid-cols-2 ${i % 2 === 1 ? "lg:[&>*:first-child]:order-2" : ""}`}>
-              <span className="relative block aspect-[16/10] w-full overflow-hidden rounded-3xl bg-mist">
-                <Image src={f.img} alt={f.alt} fill sizes="(max-width: 1024px) 100vw, 50vw" className="object-cover" />
+            <div className={`flex flex-col gap-6 sm:flex-row sm:items-start ${i % 2 === 1 ? "sm:flex-row-reverse" : ""}`}>
+              <span className="relative block aspect-[16/10] w-full shrink-0 overflow-hidden rounded-3xl bg-mist sm:w-[320px]">
+                <Image src={f.img} alt={f.alt} fill sizes="320px" className="object-cover" />
               </span>
-              <div>
+              <div className="min-w-0">
                 <SectionTitle title={f.title} />
                 <p className="text-[15px] leading-relaxed text-muted">{f.text}</p>
               </div>
@@ -60,8 +60,8 @@ export default function Facilities() {
       <Reveal className="mt-10">
         <div className="rounded-2xl border border-line bg-mist p-5">
           <h2 className="font-bold text-navy">Hostel rooms</h2>
-          <div className="relative mt-3 block aspect-[16/10] w-full max-w-2xl overflow-hidden rounded-2xl bg-mist">
-            <Image src="/images/hostel2.jpg" alt="Second view of the hostel at Ambition Classes, Purnea" fill sizes="(max-width: 1024px) 100vw, 50vw" className="object-cover" />
+          <div className="relative mt-3 block aspect-[16/10] w-full max-w-[320px] overflow-hidden rounded-2xl bg-mist">
+            <Image src="/images/hostel2.jpg" alt="Second view of the hostel at Ambition Classes, Purnea" fill sizes="320px" className="object-cover" />
           </div>
           <p className="mt-3 text-[15px] text-muted">
             Hostel fee is shared on enquiry — call or WhatsApp us.

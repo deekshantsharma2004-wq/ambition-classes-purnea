@@ -149,16 +149,18 @@ export default function Home() {
           title="Teachers who know every student"
           sub="Classroom teaching by experts. Meet the four teachers on the Faculty page."
         />
-        <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="grid gap-3 sm:grid-cols-2">
           {FACULTY.map((f) => (
             <Reveal key={f.name}>
-              <div className="rounded-2xl border border-line bg-mist p-5 text-center">
-                <span className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-navy text-xl font-extrabold text-white">
-                  {f.name.replace("Er. ", "").split(" ").map((w) => w[0]).join("").slice(0, 2)}
+              <div className="flex items-center gap-4 rounded-2xl border border-line bg-mist p-4">
+                <span className="relative block h-[72px] w-[72px] shrink-0 overflow-hidden rounded-full bg-white lg:h-24 lg:w-24">
+                  <Image src={f.img} alt={`${f.name}, ${f.subject} teacher at Ambition Classes, Purnea`} fill sizes="96px" className="object-cover object-top" />
                 </span>
-                <h3 className="mt-3 font-bold text-navy">{f.name}</h3>
-                <p className="text-sm font-semibold text-gold-dark">{f.subject}</p>
-                <p className="text-sm text-muted">{f.detail}</p>
+                <div className="min-w-0">
+                  <h3 className="font-bold text-navy">{f.name}</h3>
+                  <p className="text-sm font-semibold text-gold-dark">{f.subject}</p>
+                  <p className="text-sm text-muted">{f.detail}</p>
+                </div>
               </div>
             </Reveal>
           ))}
@@ -178,12 +180,17 @@ export default function Home() {
             title="Our students, in their own words of hard work"
             sub="Four recent results from Ambition Classes, Purnea. Photos and details are on the Results page."
           />
-          <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="grid gap-3 sm:grid-cols-2">
             {RESULTS.map((r) => (
               <Reveal key={r.name}>
-                <div className="rounded-2xl border border-line bg-white p-5 text-center">
-                  <h3 className="font-bold text-navy">{r.name}</h3>
-                  <p className="mt-1 font-extrabold text-gold-dark">{r.result}</p>
+                <div className="flex items-center gap-4 rounded-2xl border border-line bg-white p-4">
+                  <span className="relative block h-[72px] w-[72px] shrink-0 overflow-hidden rounded-full bg-mist lg:h-24 lg:w-24">
+                    <Image src={r.img} alt={`${r.name} — ${r.result}`} fill sizes="96px" className="object-cover object-top" />
+                  </span>
+                  <div className="min-w-0">
+                    <h3 className="font-bold text-navy">{r.name}</h3>
+                    <p className="mt-1 font-extrabold text-gold-dark">{r.result}</p>
+                  </div>
                 </div>
               </Reveal>
             ))}

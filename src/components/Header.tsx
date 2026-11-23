@@ -4,7 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
-import { Menu, X } from "lucide-react";
+import { Menu, Phone, X } from "lucide-react";
 import { MAPS_URL, PHONE_1, PHONE_2 } from "@/data";
 
 const NAV = [
@@ -36,7 +36,7 @@ export default function Header() {
             className="h-11 w-auto object-contain"
           />
         </Link>
-        <nav className="hidden items-center gap-1 lg:flex" aria-label="Main navigation">
+        <nav className="hidden items-center gap-1 xl:flex" aria-label="Main navigation">
           {NAV.map((n) => (
             <Link
               key={n.href}
@@ -55,9 +55,9 @@ export default function Header() {
         <div className="flex items-center gap-2">
           <a
             href={`tel:+91${PHONE_1}`}
-            className="hidden min-h-11 items-center rounded-full border border-line px-4 text-sm font-bold text-navy md:flex"
+            className="hidden min-h-11 items-center gap-2 rounded-full bg-gold px-4 text-sm font-bold text-navy shadow-sm transition hover:-translate-y-0.5 xl:flex"
           >
-            Call {PHONE_1.slice(0, 5)} {PHONE_1.slice(5)}
+            <Phone size={16} aria-hidden /> Call {PHONE_1.slice(0, 5)} {PHONE_1.slice(5)}
           </a>
           <Link
             href="/admission"
@@ -70,14 +70,14 @@ export default function Header() {
             onClick={() => setOpen((v) => !v)}
             aria-expanded={open}
             aria-label={open ? "Close menu" : "Open menu"}
-            className="flex h-11 w-11 items-center justify-center rounded-full border border-line text-navy lg:hidden"
+            className="flex h-11 w-11 items-center justify-center rounded-full border border-line text-navy xl:hidden"
           >
             {open ? <X size={22} /> : <Menu size={22} />}
           </button>
         </div>
       </div>
       {open && (
-        <nav className="border-t border-line bg-white px-4 py-3 lg:hidden" aria-label="Mobile navigation">
+        <nav className="border-t border-line bg-white px-4 py-3 xl:hidden" aria-label="Mobile navigation">
           <ul className="grid gap-1">
             {NAV.map((n) => (
               <li key={n.href}>
@@ -96,15 +96,15 @@ export default function Header() {
             <li className="mt-2 grid grid-cols-2 gap-2">
               <a
                 href={`tel:+91${PHONE_1}`}
-                className="flex min-h-12 items-center justify-center rounded-full bg-navy px-2 text-center text-sm font-bold text-white"
+                className="flex min-h-12 items-center justify-center gap-1 rounded-full bg-gold px-2 text-center text-sm font-bold text-navy"
               >
-                Call {PHONE_1.slice(0, 5)} {PHONE_1.slice(5)}
+                <Phone size={16} aria-hidden /> Call {PHONE_1.slice(0, 5)} {PHONE_1.slice(5)}
               </a>
               <a
                 href={`tel:+91${PHONE_2}`}
-                className="flex min-h-12 items-center justify-center rounded-full bg-navy px-2 text-center text-sm font-bold text-white"
+                className="flex min-h-12 items-center justify-center gap-1 rounded-full bg-gold px-2 text-center text-sm font-bold text-navy"
               >
-                Call {PHONE_2.slice(0, 5)} {PHONE_2.slice(5)}
+                <Phone size={16} aria-hidden /> Call {PHONE_2.slice(0, 5)} {PHONE_2.slice(5)}
               </a>
               <a
                 href={MAPS_URL}

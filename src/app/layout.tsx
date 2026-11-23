@@ -24,14 +24,14 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_IN",
     siteName: "Ambition Classes, Purnea",
-    images: [{ url: "/images/og.png", width: 1200, height: 630, alt: "Ambition Classes, Purnea — IIT-JEE, NEET and +2 Boards coaching since 2003" }],
+    images: [{ url: "/images/og.jpg", width: 1200, height: 630, alt: "Ambition Classes, Purnea — IIT-JEE, NEET and +2 Boards coaching since 2003" }],
   },
   twitter: {
     card: "summary_large_image",
     title: "Ambition Classes, Purnea — IIT-JEE | NEET | +2 Boards Coaching Since 2003",
     description:
       "Ambition Classes, Purnea — IIT-JEE, NEET and +2 Boards coaching since 2003. Separate hostel for boys and girls, library, AC campus. Book a free demo class on WhatsApp.",
-    images: ["/images/og.png"],
+    images: ["/images/og.jpg"],
   },
 };
 

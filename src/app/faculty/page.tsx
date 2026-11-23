@@ -23,14 +23,14 @@ export default function Faculty() {
           names without confirmation.
         </p>
       </Reveal>
-      <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+      <div className="mt-8 grid max-w-3xl gap-3 sm:grid-cols-2">
         {FACULTY.map((f) => (
           <Reveal key={f.name}>
-            <article className="overflow-hidden rounded-2xl border border-line bg-white shadow-sm transition hover:-translate-y-1 hover:shadow-lg">
-              <span className="relative block aspect-[4/5] w-full overflow-hidden bg-mist">
-                <Image src={f.img} alt={`${f.name}, ${f.subject} teacher at Ambition Classes, Purnea`} fill sizes="(max-width: 640px) 50vw, 25vw" className="object-cover object-top" />
+            <article className="flex h-full items-center gap-4 rounded-2xl border border-line bg-white p-4 shadow-sm transition hover:-translate-y-1 hover:shadow-lg">
+              <span className="relative block h-[72px] w-[72px] shrink-0 overflow-hidden rounded-full bg-mist lg:h-24 lg:w-24">
+                <Image src={f.img} alt={`${f.name}, ${f.subject} teacher at Ambition Classes, Purnea`} fill sizes="96px" className="object-cover object-top" />
               </span>
-              <div className="p-4 text-center">
+              <div className="min-w-0">
                 <h2 className="font-bold text-navy">{f.name}</h2>
                 <p className="font-extrabold text-gold-dark">{f.subject}</p>
                 <p className="text-sm text-muted">{f.detail}</p>

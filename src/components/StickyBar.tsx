@@ -41,7 +41,7 @@ export default function StickyBar() {
     >
       <a
         href={`tel:+91${PHONE_1}`}
-        className="flex min-h-14 flex-col items-center justify-center text-xs font-bold text-navy"
+        className="flex min-h-14 flex-col items-center justify-center gap-0.5 border-r border-navy/20 bg-gold text-xs font-bold text-navy"
       >
         <Phone size={20} aria-hidden /> Call
       </a>
