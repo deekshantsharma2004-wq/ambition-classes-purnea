@@ -12,10 +12,11 @@ jobs:
         run: |
           set -e
           test -f ambition-nextjs-v3.zip
+          mv ambition-nextjs-v3.zip /tmp/v3.zip
           git ls-files -z | xargs -0 rm -f || true
           rm -rf .github __MACOSX
-          unzip -o ambition-nextjs-v3.zip
-          rm -f ambition-nextjs-v3.zip
+          unzip -o /tmp/v3.zip
+          rm -f /tmp/v3.zip
           if [ ! -f package.json ]; then
             TOP=$(find . -maxdepth 2 -name package.json -not -path './node_modules/*' | head -n 1 | xargs dirname)
             if [ -n "$TOP" ] && [ "$TOP" != "." ]; then cp -a "$TOP"/. .; rm -rf "$TOP"; fi
