@@ -1,0 +1,37 @@
+name: Extract project ZIP
+on:
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  extract:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Extract ZIP into repo root
+        run: |
+          set -e
+          test -f ambition-nextjs.zip
+          rm -rf .extract_tmp
+          mkdir .extract_tmp
+          unzip -o ambition-nextjs.zip -d .extract_tmp
+          rm -rf .extract_tmp/__MACOSX
+          top_count=$(find .extract_tmp -mindepth 1 -maxdepth 1 | wc -l)
+          top_item=$(find .extract_tmp -mindepth 1 -maxdepth 1 | head -n 1)
+          if [ "$top_count" = "1" ] && [ -d "$top_item" ]; then
+            rsync -a "$top_item"/ .extract_tmp/
+            rm -rf "$top_item"
+          fi
+          rsync -a .extract_tmp/ ./
+          rm -rf .extract_tmp ambition-nextjs.zip .github
+          ls -la
+          test -f package.json
+          test -d src
+      - name: Commit extracted files
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git status --short
+          git commit -m "Extract ambition-nextjs.zip into repo root" || echo "Nothing to commit"
+          git push
