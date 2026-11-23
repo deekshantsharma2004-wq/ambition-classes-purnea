@@ -1,0 +1,36 @@
+name: Extract v3 ZIP
+on:
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  extract:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Replace repo contents with ZIP
+        run: |
+          set -e
+          test -f ambition-nextjs-v3.zip
+          git ls-files -z | xargs -0 rm -f || true
+          rm -rf .github __MACOSX
+          unzip -o ambition-nextjs-v3.zip
+          rm -f ambition-nextjs-v3.zip
+          if [ ! -f package.json ]; then
+            TOP=$(find . -maxdepth 2 -name package.json -not -path './node_modules/*' | head -n 1 | xargs dirname)
+            if [ -n "$TOP" ] && [ "$TOP" != "." ]; then cp -a "$TOP"/. .; rm -rf "$TOP"; fi
+          fi
+          rm -rf .github __MACOSX
+          rm -f *.zip
+          ls -la
+          test -f package.json
+          test -f next.config.ts
+          test -d src
+          test -d public
+          test -f public/images/og.jpg
+          git add -A
+          git status --short
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git commit -m "Deploy Ambition Classes Purnea v3 (replace repo contents)"
+          git push
