@@ -1,9 +1,15 @@
 "use client";
 
+import { useEffect, useState } from "react";
 import { motion, useReducedMotion } from "framer-motion";
 import type { ReactNode } from "react";
 
-/** Fade-up on scroll. Respects prefers-reduced-motion (renders instantly). */
+/**
+ * Fade-up on scroll. Content is visible by default: the server-rendered HTML
+ * has no inline opacity:0, and the animation only runs after the component
+ * mounts in the browser. If JavaScript is off or Framer Motion fails to load,
+ * the page stays fully readable. Respects prefers-reduced-motion.
+ */
 export default function Reveal({
   children,
   delay = 0,
@@ -13,8 +19,12 @@ export default function Reveal({
   delay?: number;
   className?: string;
 }) {
+  const [mounted, setMounted] = useState(false);
+  useEffect(() => {
+    setMounted(true);
+  }, []);
   const reduce = useReducedMotion();
-  if (reduce) return <div className={className}>{children}</div>;
+  if (!mounted || reduce) return <div className={className}>{children}</div>;
   return (
     <motion.div
       className={className}

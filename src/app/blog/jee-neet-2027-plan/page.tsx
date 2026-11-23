@@ -3,7 +3,8 @@ import Link from "next/link";
 import Reveal from "@/components/Reveal";
 
 export const metadata: Metadata = {
-  title: "JEE/NEET 2027: Class XI se shuruaat — poora saal ka plan",
+  title: "JEE/NEET 2027 — Class XI Plan",
+  alternates: { canonical: "/blog/jee-neet-2027-plan" },
   description:
     "Class XI se JEE ya NEET ki taiyaari ka plan — pehle saal base, dusre saal revision aur test. Worksheet, practice, test aur doubt-clearing ka system.",
 };

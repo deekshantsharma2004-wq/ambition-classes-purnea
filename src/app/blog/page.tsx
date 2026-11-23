@@ -3,7 +3,8 @@ import Link from "next/link";
 import Reveal from "@/components/Reveal";
 
 export const metadata: Metadata = {
-  title: "Blog | Ambition Classes, Purnea",
+  title: "Blog",
+  alternates: { canonical: "/blog" },
   description:
     "Guides for parents and students in Purnea — how to choose a coaching institute, and how to plan JEE/NEET 2027 from Class XI.",
 };

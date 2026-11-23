@@ -5,7 +5,8 @@ import { SectionTitle } from "@/components/Shared";
 import { waCourse } from "@/data";
 
 export const metadata: Metadata = {
-  title: "NEET (Medical) Coaching | Ambition Classes, Purnea",
+  title: "NEET (Medical) Coaching",
+  alternates: { canonical: "/courses/neet" },
   description:
     "NEET-UG coaching in Purnea — Foundation, Nucleus and Target courses for medical aspirants. Fee on enquiry, free demo class.",
 };

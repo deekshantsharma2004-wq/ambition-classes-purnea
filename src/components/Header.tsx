@@ -14,6 +14,7 @@ const NAV = [
   { href: "/faculty", label: "Faculty" },
   { href: "/results", label: "Results" },
   { href: "/facilities", label: "Facilities" },
+  { href: "/fees", label: "Fees" },
   { href: "/gallery", label: "Gallery" },
   { href: "/blog", label: "Blog" },
   { href: "/contact", label: "Contact" },
@@ -62,7 +63,7 @@ export default function Header() {
             href="/admission"
             className="flex min-h-11 items-center rounded-full bg-gold px-4 text-sm font-bold text-navy shadow-sm transition hover:-translate-y-0.5"
           >
-            Free Demo
+            Try One Class Free
           </Link>
           <button
             type="button"
@@ -92,24 +93,27 @@ export default function Header() {
                 </Link>
               </li>
             ))}
-            <li className="mt-2 flex gap-2">
+            <li className="mt-2 grid grid-cols-2 gap-2">
               <a
                 href={`tel:+91${PHONE_1}`}
-                className="flex min-h-12 flex-1 items-center justify-center rounded-full bg-navy font-bold text-white"
+                className="flex min-h-12 items-center justify-center rounded-full bg-navy px-2 text-center text-sm font-bold text-white"
               >
-                Call
+                Call {PHONE_1.slice(0, 5)} {PHONE_1.slice(5)}
+              </a>
+              <a
+                href={`tel:+91${PHONE_2}`}
+                className="flex min-h-12 items-center justify-center rounded-full bg-navy px-2 text-center text-sm font-bold text-white"
+              >
+                Call {PHONE_2.slice(0, 5)} {PHONE_2.slice(5)}
               </a>
               <a
                 href={MAPS_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex min-h-12 flex-1 items-center justify-center rounded-full border border-navy font-bold text-navy"
+                className="col-span-2 flex min-h-12 items-center justify-center rounded-full border border-navy font-bold text-navy"
               >
                 Directions
               </a>
-            </li>
-            <li className="pt-1 text-sm text-muted">
-              Call: {PHONE_1} · {PHONE_2}
             </li>
           </ul>
         </nav>

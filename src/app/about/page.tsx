@@ -5,7 +5,8 @@ import { Check } from "lucide-react";
 import { SectionTitle } from "@/components/Shared";
 
 export const metadata: Metadata = {
-  title: "About Ambition Classes, Purnea — Since 2003",
+  title: "About Us — Coaching Since 2003",
+  alternates: { canonical: "/about" },
   description:
     "Ambition School of Competitive Education was established on 20th July 2003. Purnea centre since 2009. Director Mr. Amit Kumar Sinha.",
 };
@@ -41,13 +42,6 @@ export default function About() {
             <div>
               <h2 className="text-2xl font-extrabold text-navy">Mr. Amit Kumar Sinha</h2>
               <p className="font-semibold text-gold-dark">Director, Ambition Classes, Purnea</p>
-              <p className="mt-3 text-[15px] leading-relaxed text-muted">
-                &ldquo;Ambition was started with one belief — a talented student from
-                Bihar and Jharkhand should not have to leave home for good teaching.
-                Our job is simple: clear the basic concepts, practise every day,
-                test every week, and clear every doubt. If we do that honestly,
-                results follow.&rdquo;
-              </p>
               <p className="mt-3 text-[15px] leading-relaxed text-muted">
                 Students are encouraged to work on complex scientific problems through
                 interactive classes and doubt-clearing sessions. Regular practice

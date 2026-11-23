@@ -3,7 +3,8 @@ import Link from "next/link";
 import Reveal from "@/components/Reveal";
 
 export const metadata: Metadata = {
-  title: "Purnea me coaching kaise chunein — parents ke liye 10 sawal",
+  title: "Purnea me coaching kaise chunein",
+  alternates: { canonical: "/blog/choosing-coaching-purnea" },
   description:
     "Admission se pehle har coaching se ye 10 sawal poochhein — fee, teacher, test, hostel aur refund ke baare me.",
 };

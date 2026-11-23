@@ -4,7 +4,8 @@ import LeadForm from "@/components/LeadForm";
 import { SectionTitle } from "@/components/Shared";
 
 export const metadata: Metadata = {
-  title: "Admission — Book a Free Demo Class | Ambition Classes, Purnea",
+  title: "Admission — Free Demo Class",
+  alternates: { canonical: "/admission" },
   description:
     "Admission is open at Ambition Classes, Purnea. Book a free demo class in three steps: enquire, visit, join.",
 };

@@ -4,7 +4,8 @@ import Reveal from "@/components/Reveal";
 import { RESULTS } from "@/data";
 
 export const metadata: Metadata = {
-  title: "Results | Ambition Classes, Purnea",
+  title: "Results",
+  alternates: { canonical: "/results" },
   description:
     "Results from Ambition Classes, Purnea — Pooja Lavali (NEET), Romi Sah (NIT-Surat), Rajeev Ranjan (IIT-Roorkee), Pallavi Kumari (95%).",
 };

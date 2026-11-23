@@ -1,4 +1,5 @@
 import Link from "next/link";
+import FooterYear from "./FooterYear";
 import { ADDRESS, HOURS, MAPS_URL, PHONE_1, PHONE_2, WHATSAPP } from "@/data";
 
 export default function Footer() {
@@ -51,6 +52,7 @@ export default function Footer() {
               ["/admission", "Admission"],
               ["/faq", "FAQ"],
               ["/blog", "Blog"],
+              ["/reviews", "Reviews"],
               ["/privacy", "Privacy"],
               ["/terms", "Terms"],
               ["/refund", "Refund Policy"],
@@ -66,7 +68,7 @@ export default function Footer() {
         </div>
       </div>
       <div className="border-t border-white/15 py-4 text-center text-xs text-white/60">
-        © 2026 Ambition Classes, Purnea. Serving Purnea since 2003.
+        © <FooterYear /> Ambition Classes, Purnea. Serving Purnea since 2003.
       </div>
     </footer>
   );

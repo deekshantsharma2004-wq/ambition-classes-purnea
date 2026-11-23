@@ -2,7 +2,8 @@ import type { Metadata } from "next";
 import Reveal from "@/components/Reveal";
 
 export const metadata: Metadata = {
-  title: "FAQ | Ambition Classes, Purnea",
+  title: "FAQ",
+  alternates: { canonical: "/faq" },
   description:
     "Frequently asked questions about Ambition Classes, Purnea — fees, hostel, courses, admission, demo class.",
 };

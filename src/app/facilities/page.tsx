@@ -4,7 +4,8 @@ import Reveal from "@/components/Reveal";
 import { SectionTitle } from "@/components/Shared";
 
 export const metadata: Metadata = {
-  title: "Facilities — Hostel, Library, Campus | Ambition Classes, Purnea",
+  title: "Hostel, Library & Campus",
+  alternates: { canonical: "/facilities" },
   description:
     "Separate hostel for boys and girls, library and spacious AC campus at Ambition Classes, Purnea.",
 };
@@ -58,7 +59,7 @@ export default function Facilities() {
       ))}
       <Reveal className="mt-10">
         <div className="rounded-2xl border border-line bg-mist p-5">
-          <h2 className="font-bold text-navy">Second hostel photo</h2>
+          <h2 className="font-bold text-navy">Hostel rooms</h2>
           <div className="relative mt-3 block aspect-[16/10] w-full max-w-2xl overflow-hidden rounded-2xl bg-mist">
             <Image src="/images/hostel2.jpg" alt="Second view of the hostel at Ambition Classes, Purnea" fill sizes="(max-width: 1024px) 100vw, 50vw" className="object-cover" />
           </div>

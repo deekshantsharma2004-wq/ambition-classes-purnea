@@ -36,7 +36,7 @@ export function QuickActions() {
         href="/admission"
         className="flex min-h-12 items-center justify-center rounded-full bg-gold font-bold text-navy transition hover:-translate-y-0.5"
       >
-        Free Demo Class
+        See a Real Class First
       </Link>
       <a
         href={MAPS_URL}
@@ -54,20 +54,31 @@ export function TrustStrip() {
   const stats = [
     { big: "23 Years", small: "Serving Purnea since 2003" },
     { big: "4 Courses", small: "JEE · NEET · Boards · Foundation" },
-    { big: "3.8", small: "Google rating (87+ reviews)", star: true },
+    { big: "3.8", small: "Google rating (87+ reviews)", star: true, href: "/reviews" },
     { big: "Hostel", small: "Separate for boys & girls" },
   ];
   return (
     <div className="grid grid-cols-2 gap-px overflow-hidden rounded-2xl border border-line bg-line lg:grid-cols-4">
-      {stats.map((s) => (
-        <div key={s.big} className="bg-mist px-4 py-5 text-center">
-          <p className="flex items-center justify-center gap-1 text-xl font-extrabold text-navy sm:text-2xl">
-            {s.big}
-            {(s as { star?: boolean }).star && <Star size={20} className="fill-gold text-gold" aria-hidden />}
-          </p>
-          <p className="mt-1 text-xs font-semibold text-muted sm:text-sm">{s.small}</p>
-        </div>
-      ))}
+      {stats.map((s) => {
+        const inner = (
+          <>
+            <p className="flex items-center justify-center gap-1 text-xl font-extrabold text-navy sm:text-2xl">
+              {s.big}
+              {(s as { star?: boolean }).star && <Star size={20} className="fill-gold text-gold" aria-hidden />}
+            </p>
+            <p className="mt-1 text-xs font-semibold text-muted sm:text-sm">{s.small}</p>
+          </>
+        );
+        return (s as { href?: string }).href ? (
+          <Link key={s.big} href={(s as { href: string }).href} className="block bg-mist px-4 py-5 text-center transition hover:bg-white">
+            {inner}
+          </Link>
+        ) : (
+          <div key={s.big} className="bg-mist px-4 py-5 text-center">
+            {inner}
+          </div>
+        );
+      })}
     </div>
   );
 }

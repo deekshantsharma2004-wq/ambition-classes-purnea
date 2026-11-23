@@ -5,11 +5,35 @@ import { usePathname } from "next/navigation";
 import { MessageCircle, PenLine, Phone } from "lucide-react";
 import { PHONE_1, WHATSAPP } from "@/data";
 
-/** Mobile-only sticky bar. Hidden on desktop (md+) and never rendered on admin/404 (layout excludes it there). */
+/** Mobile-only sticky bar. Never rendered on /admin or on any unknown route (404). */
+const KNOWN_PATHS = new Set([
+  "/",
+  "/about",
+  "/courses",
+  "/courses/jee",
+  "/courses/neet",
+  "/courses/foundation",
+  "/faculty",
+  "/results",
+  "/facilities",
+  "/fees",
+  "/admission",
+  "/gallery",
+  "/reviews",
+  "/contact",
+  "/faq",
+  "/blog",
+  "/blog/choosing-coaching-purnea",
+  "/blog/jee-neet-2027-plan",
+  "/privacy",
+  "/terms",
+  "/refund",
+]);
+
 export default function StickyBar() {
   const pathname = usePathname();
-  // Never show on the staff admin page.
-  if (pathname === "/admin") return null;
+  // Never show on the staff admin page or on a not-found page.
+  if (pathname === "/admin" || !KNOWN_PATHS.has(pathname ?? "")) return null;
   return (
     <div
       className="fixed inset-x-0 bottom-0 z-50 grid grid-cols-3 border-t border-line bg-white shadow-[0_-4px_16px_rgba(11,42,91,0.12)] md:hidden"

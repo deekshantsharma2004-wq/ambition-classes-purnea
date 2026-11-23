@@ -13,6 +13,7 @@ const poppins = Poppins({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://ambitionclassespurnea.in"),
+  alternates: { canonical: "/" },
   title: {
     default: "Ambition Classes, Purnea — IIT-JEE | NEET | +2 Boards Coaching Since 2003",
     template: "%s | Ambition Classes, Purnea",
@@ -23,7 +24,14 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_IN",
     siteName: "Ambition Classes, Purnea",
-    images: [{ url: "/images/p1.jpg", width: 502, height: 548, alt: "Students at Ambition Classes, Purnea" }],
+    images: [{ url: "/images/og.png", width: 1200, height: 630, alt: "Ambition Classes, Purnea — IIT-JEE, NEET and +2 Boards coaching since 2003" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Ambition Classes, Purnea — IIT-JEE | NEET | +2 Boards Coaching Since 2003",
+    description:
+      "Ambition Classes, Purnea — IIT-JEE, NEET and +2 Boards coaching since 2003. Separate hostel for boys and girls, library, AC campus. Book a free demo class on WhatsApp.",
+    images: ["/images/og.png"],
   },
 };
 
@@ -62,11 +70,17 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                 { "@type": "ContactPoint", telephone: "+91-9771347243", contactType: "admissions", areaServed: "IN-BR", availableLanguage: ["en", "hi"] },
                 { "@type": "ContactPoint", telephone: "+91-9031251134", contactType: "admissions", areaServed: "IN-BR", availableLanguage: ["en", "hi"] },
               ],
-              aggregateRating: { "@type": "AggregateRating", ratingValue: "3.8", bestRating: "5", worstRating: "1", reviewCount: "87" },
-              areaServed: ["Purnea", "Forbesganj", "Araria", "Katihar", "Banmankhi"],
+              aggregateRating: { "@type": "AggregateRating", ratingValue: "3.8", bestRating: "5", worstRating: "1" },
+              areaServed: ["Purnea"],
             }),
           }}
         />
+        <noscript>
+          <style>{`[style*="opacity:0"]{opacity:1 !important;transform:none !important;}`}</style>
+          <p style={{ background: "#f5b301", color: "#0b2a5b", padding: "12px 16px", textAlign: "center", fontWeight: 700 }}>
+            JavaScript is off, so forms on this site will not work. Please call us directly: 97713 47243 or 90312 51134.
+          </p>
+        </noscript>
         <Header />
         <main id="main" className="flex-1 pb-[72px] md:pb-0">
           {children}

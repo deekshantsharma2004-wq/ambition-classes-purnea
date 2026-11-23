@@ -2,8 +2,9 @@ import type { Metadata } from "next";
 import Reveal from "@/components/Reveal";
 
 export const metadata: Metadata = {
-  title: "Privacy Policy | Ambition Classes, Purnea",
-  description: "How Ambition Classes, Purnea handles enquiry information.",
+  title: "Privacy Policy",
+  alternates: { canonical: "/privacy" },
+  description: "Privacy policy of Ambition Classes, Purnea: enquiry details are used only to reply to your enquiry. No tracking cookies or advertising pixels.",
 };
 
 export default function Privacy() {

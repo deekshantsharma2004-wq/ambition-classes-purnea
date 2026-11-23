@@ -4,7 +4,8 @@ import Reveal from "@/components/Reveal";
 import { FACULTY } from "@/data";
 
 export const metadata: Metadata = {
-  title: "Faculty | Ambition Classes, Purnea",
+  title: "Faculty",
+  alternates: { canonical: "/faculty" },
   description:
     "Meet the teachers of Ambition Classes, Purnea — Er. H. Lal, Er. Vijay Kumar, Er. P. Santosh (Physics) and Sandeep Jha (Mathematics).",
 };

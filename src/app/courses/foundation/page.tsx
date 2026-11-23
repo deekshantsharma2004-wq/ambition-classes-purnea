@@ -5,7 +5,8 @@ import { SectionTitle } from "@/components/Shared";
 import { waCourse } from "@/data";
 
 export const metadata: Metadata = {
-  title: "Foundation Course (Class IX–XII) | Ambition Classes, Purnea",
+  title: "Foundation — Class IX–XII",
+  alternates: { canonical: "/courses/foundation" },
   description:
     "Foundation and Pre-Foundation courses in Purnea — Class IX and X for NTSE and Olympiad, Class XI and XII for IIT-JEE and NEET.",
 };
@@ -15,8 +16,12 @@ export default function Foundation() {
     <div className="mx-auto max-w-[1200px] px-4 py-10 sm:px-6">
       <Reveal>
         <p className="text-sm font-bold uppercase tracking-widest text-gold-dark">Foundation · Class IX–XII</p>
-        <h1 className="mt-1 text-3xl font-extrabold text-navy sm:text-4xl">Foundation Course in Purnea</h1>
+        <h1 className="mt-1 text-3xl font-extrabold text-navy sm:text-4xl">Foundation &amp; Pre-Foundation Courses in Purnea</h1>
         <span className="mt-3 block h-1 w-14 rounded bg-gold" aria-hidden />
+        <p className="mt-4 max-w-3xl text-[15px] leading-relaxed text-muted">
+          You are on the right page: this page covers both Pre-Foundation (Class
+          IX &amp; X) and Foundation (Class XI–XII).
+        </p>
         <p className="mt-4 max-w-3xl text-[15px] leading-relaxed text-muted">
           Start early, start right. Pre-Foundation (Class IX &amp; X) prepares
           students for NTSE and Olympiads. Foundation (Class X / XI / XII)

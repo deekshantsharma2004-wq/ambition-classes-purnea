@@ -13,8 +13,9 @@ const PHOTOS: GalleryPhoto[] = [
 ];
 
 export const metadata: Metadata = {
-  title: "Gallery — Campus, Hostel, Library | Ambition Classes, Purnea",
-  description: "Photos of the campus, classroom, hostel and library at Ambition Classes, Purnea.",
+  title: "Campus Photo Gallery",
+  alternates: { canonical: "/gallery" },
+  description: "Photos of the campus, classroom, hostel and library at Ambition Classes, Purnea — see where students study, stay and read in Purnea, Bihar.",
 };
 
 export default function Gallery() {

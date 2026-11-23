@@ -4,7 +4,8 @@ import Reveal from "@/components/Reveal";
 import { COURSES, waCourse } from "@/data";
 
 export const metadata: Metadata = {
-  title: "Courses — IIT-JEE, NEET, Foundation | Ambition Classes, Purnea",
+  title: "Courses: JEE, NEET, Foundation",
+  alternates: { canonical: "/courses" },
   description:
     "Foundation, Nucleus, Target and Pre-Foundation courses for IIT-JEE, NEET and +2 Boards in Purnea. Fee on enquiry, free demo class.",
 };
@@ -19,7 +20,8 @@ export default function Courses() {
         <p className="mt-4 max-w-3xl text-[15px] leading-relaxed text-muted">
           Every course follows the same system: worksheet, practice, weekly test and
           doubt-clearing. Fee details are shared on enquiry — book a free demo class
-          to see the teaching first.
+          to see the teaching first. Nucleus (XII pass) and Target (XII / I.Sc) both
+          cover IIT-JEE and NEET — pick your exam when you book a demo class.
         </p>
       </Reveal>
       <div className="mt-8 grid gap-4 sm:grid-cols-2">
@@ -51,6 +53,8 @@ export default function Courses() {
         <p className="rounded-2xl bg-mist p-5 text-[15px] leading-relaxed text-muted">
           Not sure which course fits? Book a free demo class — our counsellor will
           ask about your class and target exam and suggest the right batch.
+          CUET guidance is also available on enquiry — ask on WhatsApp or at the
+          demo class.
         </p>
       </Reveal>
     </div>

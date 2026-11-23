@@ -5,7 +5,8 @@ import { SectionTitle } from "@/components/Shared";
 import { ADDRESS, HOURS, MAPS_URL, PHONE_1, PHONE_2, WA_GENERAL, waLink } from "@/data";
 
 export const metadata: Metadata = {
-  title: "Contact Us | Ambition Classes, Purnea",
+  title: "Contact Us",
+  alternates: { canonical: "/contact" },
   description:
     "Contact Ambition Classes, Purnea — Navratan Hata, NH-31, Ford Company Chowk. Call 9771347243 or 9031251134, 7:30 AM to 7:00 PM.",
 };
@@ -27,6 +28,15 @@ export default function Contact() {
               <a href={MAPS_URL} target="_blank" rel="noopener noreferrer" className="mt-3 inline-flex min-h-11 items-center rounded-full bg-navy px-5 font-bold text-white">
                 Get directions →
               </a>
+            </div>
+            <div className="overflow-hidden rounded-2xl border border-line">
+              <iframe
+                title="Map — Ambition Classes, Purnea, Navratan Hata, NH-31, Ford Company Chowk"
+                src="https://www.google.com/maps?q=25.777863,87.480034&output=embed"
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                className="h-[300px] w-full border-0"
+              />
             </div>
             <div className="rounded-2xl border border-line p-5">
               <h2 className="font-bold text-navy">Phone</h2>

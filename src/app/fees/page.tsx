@@ -4,7 +4,8 @@ import Reveal from "@/components/Reveal";
 import { WA_GENERAL, waLink } from "@/data";
 
 export const metadata: Metadata = {
-  title: "Fees | Ambition Classes, Purnea",
+  title: "Fees & Scholarships",
+  alternates: { canonical: "/fees" },
   description:
     "Fee details for Ambition Classes, Purnea are shared on enquiry. No fee for a demo class. Instalments and scholarships on enquiry.",
 };

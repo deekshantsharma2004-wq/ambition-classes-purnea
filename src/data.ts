@@ -10,7 +10,7 @@ export const WA_GENERAL =
   "Namaste, mujhe Ambition Classes Purnea me admission ke baare me jaankari chahiye.";
 export function waCourse(course: string) {
   return waLink(
-    `Namaste, mujhe ${course} course ke baare me jaankari chahiye — fee, batch timing aur demo class.`,
+    `Namaste, mujhe ${course} ke baare me jaankari chahiye — fee, batch timing aur demo class.`,
   );
 }
 export const WHATSAPP = waLink(WA_GENERAL);
@@ -39,7 +39,7 @@ export const COURSES = [
     name: "Nucleus Course",
     tag: "XII Pass",
     exam: "IIT-JEE / NEET",
-    href: "/courses/jee",
+    href: "/courses",
     promise:
       "A focused dropper year: full syllabus revision, daily practice and weekly tests.",
     who: "Students who have passed Class XII",
@@ -50,7 +50,7 @@ export const COURSES = [
     name: "Target Course",
     tag: "XII / I.Sc",
     exam: "Medical / IIT",
-    href: "/courses/neet",
+    href: "/courses",
     promise:
       "Board exam and entrance exam preparation together — no separate coaching needed.",
     who: "Class XII / I.Sc students",
@@ -141,9 +141,9 @@ export function loadLeads(): Lead[] {
 
 export function saveLead(lead: Lead) {
   const leads = loadLeads();
-  const fiveMinAgo = Date.now() - 5 * 60 * 1000;
+  const thirtyMinAgo = Date.now() - 30 * 60 * 1000;
   const dup = leads.find(
-    (l) => l.phone === lead.phone && new Date(l.date).getTime() > fiveMinAgo,
+    (l) => l.phone === lead.phone && new Date(l.date).getTime() > thirtyMinAgo,
   );
   if (dup) return false;
   leads.unshift(lead);

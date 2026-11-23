@@ -5,7 +5,8 @@ import { SectionTitle } from "@/components/Shared";
 import { waCourse } from "@/data";
 
 export const metadata: Metadata = {
-  title: "IIT-JEE Course (JEE Main + Advanced) | Ambition Classes, Purnea",
+  title: "IIT-JEE Course (Main + Advanced)",
+  alternates: { canonical: "/courses/jee" },
   description:
     "IIT-JEE Main and Advanced coaching in Purnea — Foundation, Nucleus and Target courses. Fee on enquiry, free demo class.",
 };

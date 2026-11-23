@@ -3,7 +3,8 @@ import Reveal from "@/components/Reveal";
 import { Star } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Reviews | Ambition Classes, Purnea",
+  title: "Reviews",
+  alternates: { canonical: "/reviews" },
   description:
     "Ambition Classes, Purnea is rated 3.8 stars on Google from 87+ reviews. Read what parents and students say.",
 };

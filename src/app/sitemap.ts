@@ -26,5 +26,6 @@ const PAGES = [
 ];
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  return PAGES.map((p) => ({ url: `${BASE}${p || "/"}`, lastModified: new Date("2026-11-24") }));
+  // lastModified is the build date — never a hardcoded date that goes stale.
+  return PAGES.map((p) => ({ url: `${BASE}${p || "/"}`, lastModified: new Date() }));
 }

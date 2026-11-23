@@ -23,7 +23,7 @@ export default function LeadForm({ source }: { source: string }) {
   const [cls, setCls] = useState("");
   const [course, setCourse] = useState("");
   const [guardian, setGuardian] = useState("");
-  const [consent, setConsent] = useState(false);
+  const [consent, setConsent] = useState<"" | "parent" | "adult">("");
   const [error, setError] = useState("");
   const [done, setDone] = useState(false);
   const [waUrl, setWaUrl] = useState("");
@@ -53,8 +53,15 @@ export default function LeadForm({ source }: { source: string }) {
       return;
     }
     if (!consent) {
+      setError("Please select who is filling this form.");
+      return;
+    }
+    if (
+      consent === "parent" &&
+      (guardian.trim().length < 2 || !/[A-Za-z]/.test(guardian.trim()))
+    ) {
       setError(
-        "Please confirm: you are the parent/guardian, or the student is 18 or older.",
+        "As the parent/guardian, please enter your name above — it is required for a student under 18.",
       );
       return;
     }
@@ -186,7 +193,7 @@ export default function LeadForm({ source }: { source: string }) {
       </div>
       <div>
         <label htmlFor={`guardian-${source}`} className="mb-1 block text-sm font-semibold text-navy">
-          Parent / guardian name <span className="font-normal text-muted">(required if the student is under 18)</span>
+          Parent / guardian name <span className="font-normal text-muted">(required if you selected parent/guardian above)</span>
         </label>
         <input
           id={`guardian-${source}`}
@@ -198,16 +205,35 @@ export default function LeadForm({ source }: { source: string }) {
           className="w-full rounded-xl border border-line bg-white px-4 py-3 outline-none focus:border-navy focus:ring-2 focus:ring-navy/20"
         />
       </div>
-      <label className="flex items-start gap-2 text-sm leading-relaxed text-muted">
-        <input
-          type="checkbox"
-          checked={consent}
-          onChange={(e) => setConsent(e.target.checked)}
-          className="mt-1 h-5 w-5 shrink-0 accent-[#0b2a5b]"
-        />
-        I am the parent/guardian of the student, or the student is 18 years or
-        older. I agree the institute may call or message me about this enquiry.
-      </label>
+      <fieldset>
+        <legend className="mb-1 block text-sm font-semibold text-navy">
+          Who is filling this form?
+        </legend>
+        <label className="flex items-start gap-2 text-sm leading-relaxed text-muted">
+          <input
+            type="radio"
+            name={`consent-${source}`}
+            value="parent"
+            checked={consent === "parent"}
+            onChange={() => setConsent("parent")}
+            className="mt-1 h-5 w-5 shrink-0 accent-[#0b2a5b]"
+          />
+          I am the parent/guardian of the student. I agree the institute may
+          call or message me about this enquiry.
+        </label>
+        <label className="mt-2 flex items-start gap-2 text-sm leading-relaxed text-muted">
+          <input
+            type="radio"
+            name={`consent-${source}`}
+            value="adult"
+            checked={consent === "adult"}
+            onChange={() => setConsent("adult")}
+            className="mt-1 h-5 w-5 shrink-0 accent-[#0b2a5b]"
+          />
+          I am the student and I am 18 years or older. I agree the institute
+          may call or message me about this enquiry.
+        </label>
+      </fieldset>
       {error && (
         <p role="alert" className="rounded-xl bg-red-50 px-4 py-3 text-sm font-semibold text-red-700">
           {error}

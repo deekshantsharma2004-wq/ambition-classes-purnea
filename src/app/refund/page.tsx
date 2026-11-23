@@ -2,7 +2,8 @@ import type { Metadata } from "next";
 import Reveal from "@/components/Reveal";
 
 export const metadata: Metadata = {
-  title: "Refund Policy | Ambition Classes, Purnea",
+  title: "Refund Policy",
+  alternates: { canonical: "/refund" },
   description:
     "Refund policy of Ambition Classes, Purnea — mid-course exit is refunded pro-rata within 10 days. Fee is never increased mid-course.",
 };

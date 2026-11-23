@@ -4,10 +4,13 @@ import Link from "next/link";
 import Reveal from "@/components/Reveal";
 import LeadForm from "@/components/LeadForm";
 import { QuickActions, SectionTitle, TrustStrip } from "@/components/Shared";
-import { COURSES, FACULTY, HINDI_LINE, RESULTS, WA_GENERAL, waLink } from "@/data";
+import { COURSES, FACULTY, HINDI_LINE, RESULTS, WA_GENERAL, waCourse, waLink } from "@/data";
 
 export const metadata: Metadata = {
-  title: "Ambition Classes, Purnea — IIT-JEE | NEET | +2 Boards Coaching Since 2003",
+  title: {
+    absolute: "IIT-JEE, NEET Coaching Purnea | Ambition Classes, Purnea",
+  },
+  alternates: { canonical: "/" },
   description:
     "Ambition Classes, Purnea — IIT-JEE, NEET and +2 Boards coaching since 2003. Separate hostel for boys and girls, library, AC campus. Book a free demo class.",
 };
@@ -21,9 +24,24 @@ const SYSTEM = [
 
 export default function Home() {
   return (
-    <>
+    <div className="flex flex-col">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            mainEntity: [
+              { "@type": "Question", name: "What is the fee?", acceptedAnswer: { "@type": "Answer", text: "Fee details are shared on enquiry — call or WhatsApp us. There is no fee for a demo class." } },
+              { "@type": "Question", name: "Is there a hostel?", acceptedAnswer: { "@type": "Answer", text: "Yes — separate hostels for boys and girls, with a warden, caretakers and 24×7 security, and a separate mess." } },
+              { "@type": "Question", name: "Which classes do you teach?", acceptedAnswer: { "@type": "Answer", text: "Class IX and X (Pre-Foundation), Class XI and XII (Foundation), XII pass (Nucleus), and XII / I.Sc (Target) — for IIT-JEE, NEET and +2 Boards." } },
+              { "@type": "Question", name: "How do I join?", acceptedAnswer: { "@type": "Answer", text: "Book a free demo class from this page, visit the campus at Navratan Hata, NH-31, Ford Company Chowk, Purnea — and then take admission." } },
+            ],
+          }),
+        }}
+      />
       {/* HERO — photo is p1.jpg, used only here */}
-      <section className="bg-navy text-white">
+      <section className="order-1 lg:order-none bg-navy text-white">
         <div className="mx-auto grid max-w-[1200px] gap-8 px-4 py-10 sm:px-6 lg:grid-cols-2 lg:items-center lg:py-16">
           <Reveal>
             <p className="text-sm font-bold uppercase tracking-widest text-gold">{HINDI_LINE}</p>
@@ -57,12 +75,12 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="mx-auto max-w-[1200px] px-4 py-8 sm:px-6">
+      <section className="order-2 lg:order-none mx-auto max-w-[1200px] px-4 py-8 sm:px-6">
         <TrustStrip />
       </section>
 
       {/* COURSES */}
-      <section className="mx-auto max-w-[1200px] px-4 py-6 sm:px-6">
+      <section className="order-3 lg:order-none mx-auto max-w-[1200px] px-4 py-6 sm:px-6">
         <SectionTitle
           kicker="Courses"
           title="Choose your course"
@@ -82,7 +100,7 @@ export default function Home() {
                     View course
                   </Link>
                   <a
-                    href={waLink(`Namaste, mujhe ${c.name} course ke baare me jaankari chahiye — fee, batch timing aur demo class.`)}
+                    href={waCourse(c.name)}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="flex min-h-11 flex-1 items-center justify-center rounded-full border-2 border-[#157347] font-bold text-[#157347]"
@@ -97,7 +115,7 @@ export default function Home() {
       </section>
 
       {/* AMBITION SYSTEM — dark premium band */}
-      <section className="bg-navy-dark py-12 text-white sm:py-16">
+      <section className="order-4 lg:order-none bg-navy-dark py-12 text-white sm:py-16">
         <div className="mx-auto max-w-[1200px] px-4 sm:px-6">
           <Reveal>
             <p className="text-sm font-bold uppercase tracking-widest text-gold">The Ambition System</p>
@@ -118,14 +136,14 @@ export default function Home() {
             ))}
           </div>
           <p className="mt-6 text-sm text-white/70">
-            We do not promise a rank or a selection. We promise honest teaching, regular tests and
-            doubt-clearing — the rest is the student&apos;s hard work.
+            Honest teaching, regular tests and doubt-clearing — the rest is the
+            student&apos;s hard work.
           </p>
         </div>
       </section>
 
       {/* FACULTY PREVIEW — names only, photos live on /faculty */}
-      <section className="mx-auto max-w-[1200px] px-4 py-12 sm:px-6">
+      <section className="order-6 lg:order-none mx-auto max-w-[1200px] px-4 py-12 sm:px-6">
         <SectionTitle
           kicker="Faculty"
           title="Teachers who know every student"
@@ -153,7 +171,7 @@ export default function Home() {
       </section>
 
       {/* RESULTS PREVIEW — names only, photos live on /results */}
-      <section className="bg-mist py-12">
+      <section className="order-7 lg:order-none bg-mist py-12">
         <div className="mx-auto max-w-[1200px] px-4 sm:px-6">
           <SectionTitle
             kicker="Results"
@@ -179,7 +197,7 @@ export default function Home() {
       </section>
 
       {/* FACILITIES + OUTSTATION */}
-      <section className="mx-auto max-w-[1200px] px-4 py-12 sm:px-6">
+      <section className="order-8 lg:order-none mx-auto max-w-[1200px] px-4 py-12 sm:px-6">
         <SectionTitle
           kicker="Facilities"
           title="A campus built for studying — and staying"
@@ -207,10 +225,10 @@ export default function Home() {
       </section>
 
       {/* ADMISSION FORM — first on phone via order */}
-      <section className="bg-navy py-12 text-white">
+      <section className="order-5 lg:order-none bg-navy py-12 text-white">
         <div className="mx-auto grid max-w-[1200px] gap-8 px-4 sm:px-6 lg:grid-cols-2">
           <Reveal>
-            <h2 className="text-2xl font-extrabold sm:text-3xl">Book a free demo class</h2>
+            <h2 className="text-2xl font-extrabold sm:text-3xl">Sit in a real class, free</h2>
             <span className="mt-3 block h-1 w-14 rounded bg-gold" aria-hidden />
             <p className="mt-3 max-w-md leading-relaxed text-white/85">
               Fill the form and tap Send in WhatsApp — your enquiry reaches us only
@@ -236,7 +254,7 @@ export default function Home() {
       </section>
 
       {/* FAQ preview */}
-      <section className="mx-auto max-w-[1200px] px-4 py-12 sm:px-6">
+      <section className="order-9 lg:order-none mx-auto max-w-[1200px] px-4 py-12 sm:px-6">
         <SectionTitle kicker="FAQ" title="Parents ask us" />
         <div className="grid gap-3 md:grid-cols-2">
           {[
@@ -262,6 +280,6 @@ export default function Home() {
           </Link>
         </div>
       </section>
-    </>
+    </div>
   );
 }
